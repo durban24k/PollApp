@@ -1,4 +1,4 @@
-const server = "http://192.168.137.1:3000";
+const server = "http://localhost:1000";
 let uuid = ""
 let rawCookieName = "uuid"
 let rawCookie = document.cookie;
