@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Poll</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header><h1>Editing.</h1></header>
+    <main>
+        <div class="container">
+            <form>
+                <div id="question-div">
+                    <label id="question-label">Question Name</label>
+                    <input type="text" name="questionTextBox" id="question-textbox">
+                </div>
+                <div id="response-div">
+                    <div id="response-controls-div">
+                        <label id="response-controls-label">Response</label>
+                        <input type="text" id="response-controls-textbox">
+                        <div id="response-controls-button" onclick="createResponse()">Add response</div>
+                    </div>
+                    <div id="response-list">
+                    </div>
+                </div>
+                <div id="edit-controls-div">
+                    <button>Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <h6>Copyright {like you care}</h6>
+    </footer>
+    <script src="./scripts/edit.js"></script>
+</body>
+</html>
