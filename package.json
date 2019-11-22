@@ -1,0 +1,22 @@
+{
+  "name": "poll_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/durban24k/PollApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/durban24k/PollApp/issues"
+  },
+  "homepage": "https://github.com/durban24k/PollApp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
