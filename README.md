@@ -1,3 +1,3 @@
 # PollApp
 Poll Application School Project
-This is a voteing system project for school.
+This is a voting system project for school.
