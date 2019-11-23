@@ -1,5 +1,6 @@
 let question = "";
 let responseList = []
+let uuid = "";
 
 function createResponse() {
     let responseTextBox = document.getElementById("response-controls-textbox").value;
@@ -16,9 +17,8 @@ function displayResponses() {
         div.classList = "response edit";
         let text = document.createElement('h3');
         text.innerText = responseList[n];
-        text.classList = "edit";
         let deleteButton = document.createElement('div');
-        deleteButton.id = 'response-control';
+        deleteButton.classList = 'response-control';
         deleteButton.setAttribute('onclick', 'deleteResponse(' + n + ')');
         deleteButton.innerText = "Delete";
         div.append(text);
@@ -60,8 +60,12 @@ document.querySelector('form').addEventListener('submit', (e) => {
 
 async function sendToServer() {
     const server = "http://localhost:1000";
-    let response = await fetch(server + "/uuid", {method: "GET"});
-    let uuid = await response.text();
+    let response;
+
+    if(!uuid) {
+        response = await fetch(server + "/uuid", {method: "GET"});
+        uuid = await response.text();
+    }
 
     let poll = {
         id: uuid,
