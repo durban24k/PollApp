@@ -81,9 +81,6 @@ main {
     left: 50%;
 
     transform: translateX(-50%) translateY(-50%);    
-
-}
-.container {
     background-color: var(--container-background-color);
 }
 
