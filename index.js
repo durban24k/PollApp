@@ -25,6 +25,10 @@ app.get('/', (request, response) => {
     response.render('home');
 });
 
+app.get('/edit', (request, response) => {
+    response.render('edit');
+});
+
 app.get('/uuid', (request, response) => {
     let uuid = utils.genUUID();
     console.log("Creating new UUID: " + uuid);
