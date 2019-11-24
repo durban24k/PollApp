@@ -2,6 +2,9 @@ let question = "";
 let responseList = []
 let uuid = "";
 
+/**
+ * Adds a response to the list.
+ */
 function createResponse() {
     let responseTextBox = document.getElementById("response-controls-textbox").value;
     responseList.push(responseTextBox); 
@@ -9,6 +12,9 @@ function createResponse() {
     displayResponses(responseTextBox);
 }
 
+/**
+ * Displays all the responses.
+ */
 function displayResponses() {
     let responseDiv = document.getElementById('response-list');
     responseDiv.innerHTML = "";
@@ -27,12 +33,20 @@ function displayResponses() {
     }
 }
 
+/**
+ * Deletes the response in the array.
+ * @param {Number} index The index of the response 
+ */
 function deleteResponse(index) {
     console.log("Deleteing Response.")
     responseList.splice(index, 1);
     displayResponses();
 }
 
+/**
+ * Event that is fired when you hit the submit button.
+ * Does basic validation.
+ */
 document.querySelector('form').addEventListener('submit', (e) => {
     let questionValue;
     try {
@@ -53,11 +67,19 @@ document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault(); 
         return;
     }
+    if(responseList.length < 2) {
+        window.alert("Please give at least 2 responses.");
+        e.preventDefault();
+        return;
+    }
     if(questionValue[length] !== "?") questionValue += "?";
     sendToServer();
     e.preventDefault(); 
 });
 
+/**
+ * Sends the data to the server.
+ */
 async function sendToServer() {
     const server = "http://localhost:1000";
     let response;
@@ -87,4 +109,5 @@ async function sendToServer() {
     response = await fetch(server + "/save", options);
     let confirmation = await response.text();
     console.log(confirmation);
+        window.alert( (confirmation === 'rejected') ? 'Submition rejected.' : 'Submition accepted');
 }
