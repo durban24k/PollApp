@@ -1,3 +1,4 @@
+<<<<<<< HEAD:public/css/style.css
 <<<<<<< HEAD
 *{
     margin:0;
@@ -37,6 +38,12 @@
 .container-home .query-card form input[type=radio]:not(old){
     padding:10px;
 =======
+=======
+:root {
+    --response-div-control-background-color: #45A29E;
+}
+
+>>>>>>> 7505636079f29eb5cacc4108588df18dca5d2b73:public/css/edit.css
 form {
     width: 100%;
     height: 100%;
@@ -47,6 +54,11 @@ form {
     grid-column: 2/3;
 
     font-size: 30px;
+
+    background: none;
+    border: none;
+
+    color: var(--question-div-color);
 }
 
 #response-controls-div {
@@ -54,6 +66,7 @@ form {
     display: grid;
 
     grid-template-columns: 1fr 4fr 1fr;
+    background: var(--response-div-control-background-color);
 }
 
 #response-controls-div label {
@@ -69,6 +82,14 @@ form {
     text-align: center;
 
     cursor: pointer;
+}
+
+#response-controls-div input {
+    background: none;
+    border: none;
+
+    font-family: var(--font-family);
+    font-size: 20px;
 }
 
 @media(max-width: 700px) {

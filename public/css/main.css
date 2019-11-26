@@ -1,14 +1,17 @@
 :root {
-    --body-background-color: #f3f3f3;
-    --header-background-color: #333;
+    --body-background-color: #0b0c10;
+    --header-background-color: #1f2833;
     --header-h1-forground-color: white;
-    --footer-background-color: orange;
-    --container-background-color: red;
+    --footer-background-color: #1f2833;
+    --footer-h1-forground-color: white;
+    --container-background-color: #c5c6c7;
 
-    --question-div-background-color: black;
-    --response-div-background-color: white;
-    --response-list-div-background-color: purple;
-    --control-div-background-color: green;
+    --question-div-background-color: #1f2833;
+    --question-div-color: #66fcf1;
+    --response-div-background-color: none;
+    --response-list-div-background-color: #c5c6c7;
+    --control-div-background-color: #1f2833;
+    --control-button-backgroun-color: #66fcf1;
 
     --container-width: 640px;
     --container-height: 480px;
@@ -17,8 +20,8 @@
     --response-div-height: 75%;
     --control-div-height: 10%;
 
+    --font-family: ('Courier New', Courier, monospace);
 }
-
 
 .response {
     display: grid;
@@ -60,7 +63,7 @@ header h1 {
 
     color: var(--header-h1-forground-color);
 
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-family);
     font-size: 60px;
     font-style: italic;
 }
@@ -81,9 +84,6 @@ main {
     left: 50%;
 
     transform: translateX(-50%) translateY(-50%);    
-
-}
-.container {
     background-color: var(--container-background-color);
 }
 
@@ -101,11 +101,12 @@ main {
     grid-column: 1/2;
 
     font-size: 50px;
+    color: var(--question-div-color);
 }
 
 #response-div {
     width: 100%;
-    min-height: var(--response-div-height);
+    height: var(--response-div-height);
     background-color: var(--response-div-background-color);
 
     display: grid;
@@ -134,6 +135,11 @@ main {
     float: right;
 
     grid-column: 2/3;
+    background: var(--control-button-backgroun-color);
+    font-weight: bold;
+    font-family: var(--font-family);
+    font-size: 20px;
+    border: none;
 }
 
 
@@ -143,6 +149,10 @@ footer {
 
     background-color: var(--footer-background-color);
     text-align: center;
+}
+
+footer * {
+    color: var(--footer-h1-forground-color);
 }
 
 @media(max-width: 700px){
