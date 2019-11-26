@@ -25,6 +25,10 @@ app.get('/', (request, response) => {
     response.render('home');
 });
 
+app.get('/edit', (request, response) => {
+    response.render('edit');
+});
+
 app.get('/uuid', (request, response) => {
     let uuid = utils.genUUID();
     console.log("Creating new UUID: " + uuid);
@@ -33,7 +37,22 @@ app.get('/uuid', (request, response) => {
 
 app.get('/poll', jsonParser, (request, response) => {
     response.send(JSON.stringify(jsonObj));
-})
+});
+
+app.post('/save', jsonParser, (request, response) => {
+    console.log('Save request recived. Attempteping a save.');
+    let json = request.body;
+    try {
+        if(!json.id || !json.question || !json.responces || !(typeof json.responces === "object")) throw new SyntaxError();
+    } catch (err) {
+        console.log('Not in the valid JSON schema. Ignored');
+        response.send('rejected');
+        return;
+    }
+    jsonObj = json;
+    console.log('Json object saved.');
+    response.send('confirmed');
+});
 
 app.listen(port);
 console.log('server listening on port: ' + port);

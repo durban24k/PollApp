@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Poll</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/edit.css">
+</head>
+<body class="background-color">
+    <header><h1>Editing...</h1></header>
+    <main>
+        <div class="container">
+
+            <form>
+            
+                <div id="question-div">
+                    <label>Question:</label>
+                    <input type="text" name="questionTextBox">
+                </div>
+            
+                <div id="response-div">
+                    <div id="response-controls-div">
+                        <label id="response-controls-label">Add Response:</label>
+                        <input type="text" id="response-controls-textbox">
+                        <img src="images/add.png" alt="Add Response to list." id="response-controls-button" onclick="createResponse()">
+                    </div>
+                    <div id="response-list">
+                    </div>
+                </div>
+            
+                <div id="controls-div">
+                    <button>Save</button>
+                </div>
+            
+            </form>
+        </div>
+    </main>
+    <footer>
+        <h6>Copyright {like you care}</h6>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/srip" title="srip">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </footer>
+    <script src="./scripts/edit.js"></script>
+</body>
+</html>
