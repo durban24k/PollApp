@@ -6,7 +6,7 @@ const jsonParser = bodyParser.json();
 const utils = require('./public/scripts/utils');
 try {
     require('console-stamp')(console, 'HH:MM:ss.l');
-} catch(ignore) {}
+} catch (ignore) { }
 
 let jsonObj = {
     id: "UUID",
@@ -43,14 +43,14 @@ app.post('/save', jsonParser, (request, response) => {
     console.log('Save request recived. Attempteping a save.');
     let json = request.body;
     try {
-        if(!json.id || !json.question || !json.responces || !(typeof json.responces === "object")) throw new SyntaxError();
+        if (!json.id || !json.question || !json.responses || !(typeof json.responses === "object")) throw new SyntaxError();
     } catch (err) {
         console.log('Not in the valid JSON schema. Ignored');
         response.send('rejected');
         return;
     }
     jsonObj = json;
-    console.log('Json object saved.');
+    console.log('Json object saved.');g
     response.send('confirmed');
 });
 
