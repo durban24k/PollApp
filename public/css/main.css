@@ -20,6 +20,7 @@
     --response-div-height: 75%;
     --control-div-height: 10%;
 
+    --font-family: ('Courier New', Courier, monospace);
 }
 
 
@@ -63,7 +64,7 @@ header h1 {
 
     color: var(--header-h1-forground-color);
 
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-family);
     font-size: 60px;
     font-style: italic;
 }
@@ -84,9 +85,6 @@ main {
     left: 50%;
 
     transform: translateX(-50%) translateY(-50%);    
-
-}
-.container {
     background-color: var(--container-background-color);
 }
 
@@ -140,7 +138,8 @@ main {
     grid-column: 2/3;
     background: var(--control-button-backgroun-color);
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family);
+    font-size: 20px;
     border: none;
 }
 
