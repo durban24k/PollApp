@@ -11,16 +11,17 @@
         // Set a callback to run when the Google Visualization API is loaded.
         google.charts.setOnLoadCallback(drawChart);
 
-        getData();
+
         console.log("summonning the json data forth from the depth is of the server")
         async function getData() {
-            const response = await fetch("test.json");
+            const response = await fetch();
             const jsonData = await response.json();
             console.log(jsonData)
 
+            var uid
             function drawChart() {
                 // var jsonData = $.ajax({
-                // url: "test.json",
+                // url: "test.json",jkk
                 // dataType: "json",
                 // async: true
                 // }).responseText;
@@ -33,6 +34,9 @@
                 chart.draw(data, { width: 400, height: 240 });
             }
         }
+        //settting refresh rate to  about 1 second
+        setInterval(getData(), 1000);
+
     </script>
 </head>
 
