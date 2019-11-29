@@ -8,5 +8,4 @@ async function query() {
     node.appendChild(textnode);
     document.getElementById("query").appendChild(node);
 
-    
 };
