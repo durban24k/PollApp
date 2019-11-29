@@ -77,5 +77,9 @@ app.post('/vote', jsonParser, (request, response) => {
     response.send('confirm');
 });
 
+app.get('/result', (request, response) => {
+    response.render('Results');
+});
+
 app.listen(port);
 console.log('server listening on port: ' + port);
