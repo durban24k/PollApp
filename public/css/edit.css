@@ -36,7 +36,6 @@
 .container-home .query-card form input[type=radio]:not(old){
     padding:10px;
 }
-
 :root {
     --response-div-control-input-background-color: hsl(177, 40%, 40%);
     --response-div-control-input-border-color: #367d79;
