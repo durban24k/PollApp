@@ -11,7 +11,7 @@ try {
 let jsonObj = {
     id: "UUID",
     question: "This is a test question",
-    responces: {
+    responses: {
         "Yellow": ["1", "2"],
         "Red": ["3"]
     }
