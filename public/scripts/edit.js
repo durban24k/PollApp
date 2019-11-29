@@ -1,3 +1,4 @@
+const server = "http://localhost:1000";
 let questionHold = "";
 let responseList = []
 let uuid = "";
@@ -6,8 +7,10 @@ let uuid = "";
  * Adds a response to the list.
  */
 function createResponse() {
-    let responseTextBox = document.getElementById("response-controls-textbox").value;
-    responseList.push(responseTextBox); 
+    let responseTextBox = document.getElementById("response-controls-textbox");
+    if(!responseTextBox.value) { window.alert("Please give a valid response."); return; }
+    responseList.push(responseTextBox.value);
+    responseTextBox.value = "";
     console.log("Creating Response");
     displayResponses(responseTextBox);
 }
@@ -50,41 +53,40 @@ function deleteResponse(index) {
  * Does basic validation.
  */
 document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    if(document.getElementById("response-controls-textbox") === document.activeElement) {
+        createResponse();
+        return false;
+    }
     let questionValue;
     try {
         questionValue = document.getElementsByName("questionTextBox")[0].value;
     } catch (err) {
         console.log("How???");
         console.log(err);
-        e.preventDefault(); 
-        return;
+        return false;
     }
     if (questionValue === " ") {
         window.alert("Please give a valid question. We do not accept blank statements here.");
-        e.preventDefault(); 
         return;
     }
     if (!questionValue) {
         window.alert("Please give a valid question.");
-        e.preventDefault(); 
-        return;
+        return false;
     }
     if(responseList.length < 2) {
         window.alert("Please give at least 2 responses.");
-        e.preventDefault();
-        return;
+        return false;
     }
     if(questionValue[length] !== "?") questionValue += "?";
     questionHold = questionValue;
     sendToServer();
-    e.preventDefault(); 
 });
 
 /**
  * Sends the data to the server.
  */
 async function sendToServer() {
-    const server = "http://localhost:1000";
     let response;
 
     if(!uuid) {
@@ -113,7 +115,11 @@ async function sendToServer() {
     let confirmation = await response.text();
     console.log(confirmation);
     if(confirmation === "rejected") window.alert("Submision Rejected");
-    if(confirmation === "confirmed") window.alert("Submision Accepted");
+    if(confirmation === "confirmed") {
+        let response = window.confirm("Submision Accepted.\nDo you want to go to the vote page?");
+        console.log(response);
+        if (response) document.location.href = server;
+    }
 }
 
 /**

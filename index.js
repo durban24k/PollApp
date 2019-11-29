@@ -11,7 +11,7 @@ try {
 let jsonObj = {
     id: "UUID",
     question: "This is a test question",
-    responces: {
+    responses: {
         "Yellow": ["1", "2"],
         "Red": ["3"]
     }
@@ -42,17 +42,43 @@ app.get('/poll', jsonParser, (request, response) => {
 app.post('/save', jsonParser, (request, response) => {
     console.log('Save request recived. Attempteping a save.');
     let json = request.body;
-    console.log(json);
     try {
         if(!json.id || !json.question || !json.responses || !(typeof json.responses === "object")) throw new SyntaxError();
     } catch (err) {
-        console.log('Not in the valid JSON schema. Ignored');
+        console.log('Not in the valid JSON scheme. Ignored.');
         response.send('rejected');
         return;
     }
     jsonObj = json;
     console.log('Json object saved.');g
     response.send('confirmed');
+});
+
+app.post('/vote', jsonParser, (request, response) => {
+    console.log('Vote request submitted');
+    let json = request.body;
+    try {
+        if(!json.id || !json.response) throw new SyntaxError();
+    } catch(err) {
+        console.log("Not in the valid JSON scheme. Ignored.");
+        response.send('rejected');
+        return;
+    }
+    for(r in jsonObj.responses) {
+        let hold = jsonObj.responses[r];
+        if(hold.includes(json.id)) {
+            console.log("Person Already voted. Vote Rejected");
+            response.send('rejected');
+            return;
+        }
+    }
+    console.log('Vote accepted.');
+    jsonObj.responses[json.response].push(json.id);
+    response.send('confirm');
+});
+
+app.get('/result', (request, response) => {
+    response.render('results');
 });
 
 app.listen(port);
