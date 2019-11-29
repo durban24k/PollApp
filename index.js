@@ -78,7 +78,7 @@ app.post('/vote', jsonParser, (request, response) => {
 });
 
 app.get('/result', (request, response) => {
-    response.render('Results');
+    response.render('results');
 });
 
 app.listen(port);
