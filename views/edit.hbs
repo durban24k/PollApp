@@ -17,21 +17,23 @@
             
                 <div id="question-div">
                     <label>Question:</label>
-                    <input type="text" name="questionTextBox">
+                    <input type="text" name="questionTextBox" id="questionTextBox">
                 </div>
             
                 <div id="response-div">
                     <div id="response-controls-div">
                         <label id="response-controls-label">Add Response:</label>
                         <input type="text" id="response-controls-textbox">
-                        <img src="images/add.png" alt="Add Response to list." id="response-controls-button" onclick="createResponse()">
+                        <div id="response-controls-button" onclick="createResponse()">
+                            <img src="images/add.png" alt="Add Response to list.">
+                        </div>
                     </div>
                     <div id="response-list">
                     </div>
                 </div>
             
                 <div id="controls-div">
-                    <button>Save</button>
+                    <button type="submit">Save</button>
                 </div>
             
             </form>
@@ -40,7 +42,9 @@
     <footer>
         <h6>Copyright {like you care}</h6>
         <div>Icons made by <a href="https://www.flaticon.com/authors/srip" title="srip">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </footer>
-    <script src="./scripts/edit.js"></script>
+    <script src="./scripts/edit.js">
+    </script>
 </body>
 </html>

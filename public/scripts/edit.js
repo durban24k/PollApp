@@ -1,4 +1,4 @@
-let question = "";
+let questionHold = "";
 let responseList = []
 let uuid = "";
 
@@ -20,12 +20,14 @@ function displayResponses() {
     responseDiv.innerHTML = "";
     for (n in responseList) {
         let div = document.createElement('div');
-        div.classList = "response edit";
+        div.classList = "response-element";
         let text = document.createElement('h3');
         text.innerText = responseList[n];
-        let deleteButton = document.createElement('div');
+        let deleteButton = document.createElement('img');
         deleteButton.classList = 'response-control';
         deleteButton.setAttribute('onclick', 'deleteResponse(' + n + ')');
+        deleteButton.alt = 'Delete Response';
+        deleteButton.src = 'images/delete.png';
         deleteButton.innerText = "Delete";
         div.append(text);
         div.append(deleteButton);
@@ -73,6 +75,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
         return;
     }
     if(questionValue[length] !== "?") questionValue += "?";
+    questionHold = questionValue;
     sendToServer();
     e.preventDefault(); 
 });
@@ -91,12 +94,12 @@ async function sendToServer() {
 
     let poll = {
         id: uuid,
-        question: this.question,
-        response: {}
+        question: questionHold,
+        responses: {}
     }
     for (n in responseList) {
         var hold = responseList[n];
-        poll.response[hold] = []
+        poll.responses[hold] = []
     }
     let options = {
         method: "POST",
@@ -109,5 +112,20 @@ async function sendToServer() {
     response = await fetch(server + "/save", options);
     let confirmation = await response.text();
     console.log(confirmation);
-        window.alert( (confirmation === 'rejected') ? 'Submition rejected.' : 'Submition accepted');
+    if(confirmation === "rejected") window.alert("Submision Rejected");
+    if(confirmation === "confirmed") window.alert("Submision Accepted");
 }
+
+/**
+ * Will cause the client to focus on the question text box.
+ */
+function focusOnQuestion() {
+    document.getElementById("questionTextBox").focus();
+}
+
+/**
+ * Called when the page is loded
+ */
+window.onload = function() {
+    focusOnQuestion();
+};

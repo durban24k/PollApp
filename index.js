@@ -42,8 +42,13 @@ app.get('/poll', jsonParser, (request, response) => {
 app.post('/save', jsonParser, (request, response) => {
     console.log('Save request recived. Attempteping a save.');
     let json = request.body;
+    console.log(json);
     try {
+<<<<<<< HEAD
         if (!json.id || !json.question || !json.responses || !(typeof json.responses === "object")) throw new SyntaxError();
+=======
+        if(!json.id || !json.question || !json.responses || !(typeof json.responses === "object")) throw new SyntaxError();
+>>>>>>> eeffe14313c9fa48ed39e13a7b43a20c798efdae
     } catch (err) {
         console.log('Not in the valid JSON schema. Ignored');
         response.send('rejected');
