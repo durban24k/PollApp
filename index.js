@@ -6,7 +6,7 @@ const jsonParser = bodyParser.json();
 const utils = require('./public/scripts/utils');
 try {
     require('console-stamp')(console, 'HH:MM:ss.l');
-} catch(ignore) {}
+} catch (ignore) { }
 
 let jsonObj = {
     id: "UUID",
@@ -50,7 +50,7 @@ app.post('/save', jsonParser, (request, response) => {
         return;
     }
     jsonObj = json;
-    console.log('Json object saved.');
+    console.log('Json object saved.');g
     response.send('confirmed');
 });
 
