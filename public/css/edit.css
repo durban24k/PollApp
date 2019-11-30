@@ -48,6 +48,10 @@ form {
     height: 100%;
 }
 
+#question-div label {
+    grid-column: 1/2;
+}
+
 #question-div input {
     margin: 3px;
     grid-column: 2/3;
@@ -94,6 +98,10 @@ form {
 
 #response-controls-button img {
     transform: translateY(50%);
+}
+
+#response-list {
+    grid-row: 2/3;
 }
 
 .response-element h3 {
