@@ -32,3 +32,20 @@ async function query() {
 window.onLoad = function(){
     query();
 };
+
+document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    var response;
+    try {
+        response = document.querySelector('input[name="responses"]:checked').value
+    }catch(err){return}
+    sendToServer(response);
+});
+
+async function sendToServer(hold) {
+    var data = {
+        id: uuid,
+        response: hold
+    }
+    console.log(data);
+}
