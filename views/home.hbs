@@ -8,19 +8,24 @@
     <title>Poll Application</title>
 </head>
 <body>
-    <div class="container-home">
-        <div class="query-card">
-            <div class="label">
+            <header>
                 <h1>Poll Question</h1>
+            </header>
+            <main>
+    <div class="container">
+        <form class="query-card">
+            <div id="question-div">
+                <label id="query"></label>
             </div>
-            <form action="">
-                <h2 id="query"></h2><br>
-                <div id="radio"></div>
-                <br><br>
+            <div id="response-div">
+                <div id="response-list"></div>
+            </div>
+            <div id="controls-div">
                 <button>Submit</button>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
+    </main>
     <script src="scripts/main.js" onload="onLoad()"></script>
     <script src="scripts/home.js" onload="query()"></script>
 </body>

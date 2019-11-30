@@ -14,14 +14,18 @@ async function query() {
     document.getElementById("query").appendChild(node);
     
     for(o in answers){
+        var div = document.createElement('div');
+        div.classList = "response-element"
         var input = document.createElement("INPUT");
         input.setAttribute("type","radio");
         input.setAttribute("name","responses");
         input.setAttribute('value', o);
-        var label = document.createElement("Label");
+        input.classList = ''
+        var label = document.createElement("h3");
         label.innerText = o;
-        document.getElementById("radio").appendChild(input);
-        document.getElementById("radio").appendChild(label);
+        div.appendChild(input);
+        div.appendChild(label);
+        document.getElementById("response-list").appendChild(div);
     }
 };
 
