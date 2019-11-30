@@ -43,9 +43,23 @@ document.querySelector('form').addEventListener('submit', (e) => {
 });
 
 async function sendToServer(hold) {
-    var data = {
+    const data = {
         id: uuid,
         response: hold
     }
-    console.log(data);
+    const option = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }
+    var response = await fetch(server + "/vote", option);
+    var result = await response.text();
+    console.log(result);
+    if(result === "rejected") window.alert("Vote Rejected");
+    if(result === "confirm") { 
+        window.alert("Vote Accepted");
+        document.location.href = server + "/result";
+    }
 }
