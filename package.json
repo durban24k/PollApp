@@ -18,7 +18,7 @@
   "homepage": "https://github.com/durban24k/PollApp#readme",
   "dependencies": {
     "console-stamp": "^0.2.9",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "hbs": "^4.0.6"
   },
   "devDependencies": {
